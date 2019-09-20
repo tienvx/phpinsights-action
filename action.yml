@@ -1,0 +1,6 @@
+name: 'phpinsights'
+description: 'Run PHP Insights'
+author: 'Tien Vo'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
