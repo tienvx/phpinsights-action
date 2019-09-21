@@ -1,4 +1,4 @@
-# GithubAction for PHPInsights
+# Github Action for PHPInsights
 
 ## Usage
 
@@ -33,8 +33,6 @@ jobs:
 +      with:
 +        args: "-v --min-quality=70 --min-complexity=70 --min-architecture=50 --min-style=80"
 ```
-
-**You can copy/paste the .github folder (under examples/) to your project and thats all!**
 
 ## Docker
 
