@@ -1,0 +1,24 @@
+name: main
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: Build docker image
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Build image
+      run: docker build -t tienvx/phpinsights-action:latest .
+
+    - name: Publish image
+      run: |
+        echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin
+        docker push tienvx/phpinsights-action:latest
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
